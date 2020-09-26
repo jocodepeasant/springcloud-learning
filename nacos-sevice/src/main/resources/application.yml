@@ -1,0 +1,10 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: nacos-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.105.206.45:8848

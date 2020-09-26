@@ -1,0 +1,13 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: nacos-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.105.206.45:8848
+
+service-url:
+  nacos-server: http://nacos-service
