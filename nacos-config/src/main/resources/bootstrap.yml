@@ -6,3 +6,6 @@ spring:
       config:
         server-addr: 47.105.206.45:8848
         file-extension: yaml
+
+      discovery:
+        server-addr: 47.105.206.45:8848

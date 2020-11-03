@@ -1,0 +1,9 @@
+server:
+  port: 8050
+spring:
+  application:
+    name: hystrix-dashboard
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.105.206.45:8848

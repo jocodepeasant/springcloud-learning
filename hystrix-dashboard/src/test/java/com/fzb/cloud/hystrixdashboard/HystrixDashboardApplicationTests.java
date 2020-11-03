@@ -1,10 +1,10 @@
-package com.fzb.cloud.nacosconfig;
+package com.fzb.cloud.hystrixdashboard;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NacosConfigApplicationTests {
+class HystrixDashboardApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,10 +1,13 @@
 package com.fzb.cloud.nacosconsume.controller;
 
 import com.fzb.cloud.nacosconsume.domain.CommonResult;
+import com.fzb.cloud.nacosconsume.service.TestService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -18,17 +21,10 @@ import org.springframework.web.client.RestTemplate;
 public class TestController {
 
     @Autowired
-    private RestTemplate restTemplate;
-    @Value("${service-url.nacos-server}")
-    private String nacosServerUrl;
+    private TestService testService;
 
-    @GetMapping("/getMessage")
-    public CommonResult getMessage(){
-        ResponseEntity<CommonResult> forEntity = restTemplate.getForEntity(nacosServerUrl + "/user/message", CommonResult.class);
-        if (forEntity.getStatusCode().is2xxSuccessful()){
-            return forEntity.getBody();
-        }else{
-            return new CommonResult("操作失败", 500);
-        }
+    @GetMapping("/getMessage/{id}")
+    public CommonResult getMessage(@PathVariable Long id){
+        return testService.getMessage(id);
     }
 }

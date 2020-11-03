@@ -1,0 +1,26 @@
+server:
+  port: 7011
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jocodepeasant/springcloud-config.git
+          username: jocodepeasant
+          password: fzb8004568933
+          clone-on-start: true
+    nacos:
+      discovery:
+        server-addr: 47.105.206.45:8848
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
